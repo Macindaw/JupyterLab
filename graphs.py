@@ -30,7 +30,7 @@ class Graphs():
                 data[i] = data[i] / total * 100
         fig1, ax = plt.subplots()
 
-        text_args = dict(fontsize=10, weight='bold', color='white')  # Must use a dict to add text args
+        text_args = dict(fontsize=10, weight='bold', color='black')  # Must use a dict to add text args
         # For usefull information about labelling https://stackoverflow.com/questions/53239733/matplotlib-move-labels-into-middle-of-pie-chart
         # https://matplotlib.org/stable/gallery/pie_and_polar_charts/pie_and_donut_labels.html#sphx-glr-gallery-pie-and-polar-charts-pie-and-donut-labels-py
 
