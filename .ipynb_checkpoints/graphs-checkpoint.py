@@ -1,5 +1,6 @@
 from matplotlib import pyplot as plt
 import numpy as np
+import seaborn as sns
 
 class Graphs():
     
@@ -28,13 +29,26 @@ class Graphs():
         if total > 1: #Check if data is in percent range
             for i in range(len(data)):
                 data[i] = data[i] / total * 100
-        fig1, ax = plt.subplots()
+        fig1, ax1 = plt.subplots()
 
         text_args = dict(fontsize=10, weight='bold', color='black')  # Must use a dict to add text args
         # For usefull information about labelling https://stackoverflow.com/questions/53239733/matplotlib-move-labels-into-middle-of-pie-chart
         # https://matplotlib.org/stable/gallery/pie_and_polar_charts/pie_and_donut_labels.html#sphx-glr-gallery-pie-and-polar-charts-pie-and-donut-labels-py
 
-        ax.pie(data, labels=labels, shadow=True, autopct='%1.1f%%', textprops=text_args)
-        ax.set_title(title, bbox={'facecolor':'0.8', 'pad':5})
+        ax1.pie(data, labels=labels, shadow=True, autopct='%1.1f%%', textprops=text_args)
+        ax1.set_title(title, bbox={'facecolor':'0.8', 'pad':5})
 
+        plt.show()
+        
+    def graph_scatter(self, data_x, data_y, title="", best_fit=False):
+        fig2, ax2 = plt.subplots()
+        ax2 = sns.regplot(x=data_x, y=data_y, line_kws={"color":"r","alpha":0.7,"lw":3}, fit_reg=False)
+        ax2.set_title(title)
+        plt.show()
+        
+    def graph_box(self, data_x, title=""):
+        fig3, ax3 = plt.subplots()
+        ax3 = sns.boxplot(x=data_x)
+        # ax3.boxplot(data_x)
+        ax3.set_title(title)
         plt.show()
