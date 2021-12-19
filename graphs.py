@@ -90,3 +90,6 @@ class Graphs():
         ax6.stem(x, data)
         plt.show()
         #https://www.python-graph-gallery.com/180-basic-lollipop-plot
+        
+    def graph_line(self):
+        pass
