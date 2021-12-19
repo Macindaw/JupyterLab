@@ -1,6 +1,8 @@
 from matplotlib import pyplot as plt
 import numpy as np
 import seaborn as sns
+import math
+from scipy.stats import gaussian_kde
 
 class Graphs():
     
@@ -53,8 +55,27 @@ class Graphs():
         ax3.set_title(title)
         plt.show()
         
-    def graph_density(self):
-        pass
+    def graph_density(self, data, title="", fill=False):
+        plt.subplots()
+        # Build a "density" function based on the dataset
+        # When you give a value from the X axis to this function, it returns the according value on the Y axis
+        density = gaussian_kde(data)
+        density.covariance_factor = lambda : .25
+        density._compute_covariance()
+        
+        # Create a vector of 200 values going from 0 to 8:
+        length = max(data)-min(data)
+        xs = np.linspace(0, math.ceil(length), math.ceil(length*20))
+        # Make the chart
+        # We're actually building a line chart where x values are set all along the axis and y value are
+        # the corresponding values from the density function
+        if fill:
+            plt.fill_between(xs, density(xs), color="#69b3a2", alpha=0.4)
+        else:
+            plt.plot(xs,density(xs))
+        plt.title(title)
+        plt.show()
+        
         #https://www.python-graph-gallery.com/density-chart-matplotlib
         
     def graph_violin(self):
