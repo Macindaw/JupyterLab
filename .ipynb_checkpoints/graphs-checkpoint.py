@@ -52,3 +52,18 @@ class Graphs():
         # ax3.boxplot(data_x)
         ax3.set_title(title)
         plt.show()
+        
+    def graph_density(self):
+        pass
+        #https://www.python-graph-gallery.com/density-chart-matplotlib
+        
+    def graph_violin(self):
+        pass
+        #https://www.python-graph-gallery.com/50-basic-violinplot-and-input-formats
+        
+    def graph_loli(self, data, title=""):
+        x = range(1,len(data)+1)
+        fig6, ax6 = plt.subplots()
+        ax6.stem(x, data)
+        plt.show()
+        #https://www.python-graph-gallery.com/180-basic-lollipop-plot
