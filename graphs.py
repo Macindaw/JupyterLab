@@ -78,8 +78,10 @@ class Graphs():
         
         #https://www.python-graph-gallery.com/density-chart-matplotlib
         
-    def graph_violin(self):
-        pass
+    def graph_violin(self, data, title=""):
+        plt.subplots()
+        sns.violinplot(y=data)
+        plt.show()
         #https://www.python-graph-gallery.com/50-basic-violinplot-and-input-formats
         
     def graph_loli(self, data, title=""):
